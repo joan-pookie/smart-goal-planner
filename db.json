@@ -1,0 +1,22 @@
+{
+  "goals": [
+    {
+      "id": "1",
+      "goal": "Buy a Laptop",
+      "amount": 50000,
+      "deadline": "2025-12-31"
+    },
+    {
+      "id": "2",
+      "goal": "Emergency Fund",
+      "amount": 20000,
+      "deadline": "2025-10-15"
+    },
+    {
+      "id": "b24d",
+      "goal": "school",
+      "amount": 100000,
+      "deadline": "2025-02-04"
+    }
+  ]
+}
