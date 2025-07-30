@@ -1,22 +1,28 @@
 {
   "goals": [
     {
-      "id": "1",
-      "goal": "Buy a Laptop",
-      "amount": 50000,
-      "deadline": "2025-12-31"
+      "id": 1,
+      "title": "Save for Laptop",
+      "description": "Save 50000 for a new laptop",
+      "targetDate": "2025-09-01"
     },
     {
-      "id": "2",
-      "goal": "Emergency Fund",
-      "amount": 20000,
-      "deadline": "2025-10-15"
-    },
-    {
-      "id": "b24d",
-      "goal": "school",
-      "amount": 100000,
-      "deadline": "2025-02-04"
+      "id": 2,
+      "title": "Emergency Fund",
+      "description": "Put aside 10,000 for emergencies",
+      "targetDate": "2025-08-15"
     }
-  ]
+  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
