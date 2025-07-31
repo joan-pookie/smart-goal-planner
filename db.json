@@ -7,7 +7,9 @@
       "targetDate": "2025-09-01"
     },
     {
-      "id": 2,
+      
+      "id": "2",
+
       "title": "Emergency Fund",
       "description": "Put aside 10,000 for emergencies",
       "targetDate": "2025-08-15"
@@ -18,18 +20,29 @@
       "description": "party after party",
       "targetDate": "2025-10-10",
       "amount": "50"
+    },
+    {
+      "id": "982e",
+      "title": "plant sukumawiki",
+      "description": "planting",
+      "targetDate": "2025-09-09",
+      "amount": "4000"
+    },
+    {
+      "id": "6088",
+      "title": "visit Lord Egerton ...Tower",
+      "description": "a visit",
+      "targetDate": "2026-02-01",
+      "amount": "10000"
+    },
+    {
+      "id": "d3c3",
+      "title": "birthday 🎂 ",
+      "description": "party",
+      "targetDate": "2025-08-24",
+      "amount": "10000"
+
     }
-  ],
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  ]
+  
 }
