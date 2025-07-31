@@ -7,10 +7,10 @@ function App() {
   const [goals, setGoals] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editingGoal, setEditingGoal] = useState(null);
-
+const API_URL = "https://smart-goal-planner-1-8tc9.onrender.com/goals";
   // Fetch existing goals from the server
   useEffect(() => {
-    fetch("http://localhost:3000/goals")
+    fetch(API_URL)
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched goals:", data);
