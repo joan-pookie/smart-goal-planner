@@ -5,7 +5,7 @@ function GoalForm({ goal = {}, onSubmit, onCancel }) {
     title: goal.title || "",
     description: goal.description || "",
     targetDate: goal.targetDate || "",
-    amount: goal.amount || "", // new field
+    amount: goal.amount || "",
   });
 
   function handleChange(e) {
@@ -19,28 +19,23 @@ function GoalForm({ goal = {}, onSubmit, onCancel }) {
   function handleSubmit(e) {
     e.preventDefault();
 
+    const formattedGoal = {
+      ...formData,
+      amount: formData.amount ? parseFloat(formData.amount) : undefined,
+    };
+
     if (goal.id) {
-      const updatedGoal = { ...goal, ...formData };
+      const updatedGoal = { ...goal, ...formattedGoal };
       onSubmit(updatedGoal);
     } else {
-      fetch("http://localhost:3000/goals", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-        .then((r) => r.json())
-        .then((newGoal) => {
-          onSubmit(newGoal);
-        });
+      onSubmit(formattedGoal);
     }
 
     setFormData({
       title: "",
       description: "",
       targetDate: "",
-      amount: "", // reset new field
+      amount: "",
     });
   }
 

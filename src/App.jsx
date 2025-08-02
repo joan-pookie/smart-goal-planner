@@ -7,8 +7,10 @@ function App() {
   const [goals, setGoals] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editingGoal, setEditingGoal] = useState(null);
-const API_URL = "https://smart-goal-planner-1-8tc9.onrender.com/goals";
-  // Fetch existing goals from the server
+
+  const API_URL = "https://smart-goal-planner-1-8tc9.onrender.com/goals";
+
+  // Fetch existing goals
   useEffect(() => {
     fetch(API_URL)
       .then((response) => response.json())
@@ -19,11 +21,11 @@ const API_URL = "https://smart-goal-planner-1-8tc9.onrender.com/goals";
       .catch((error) => console.error("Error fetching goals:", error));
   }, []);
 
-  // Submit (Add or Edit) goal
+  // Add or Edit Goal
   function handleFormSubmit(goalData) {
     if (goalData.id) {
       // Update existing goal
-      fetch(`http://localhost:3000/goals/${goalData.id}`, {
+      fetch(`${API_URL}/${goalData.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +40,7 @@ const API_URL = "https://smart-goal-planner-1-8tc9.onrender.com/goals";
         });
     } else {
       // Create new goal
-      fetch("http://localhost:3000/goals", {
+      fetch(API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +59,7 @@ const API_URL = "https://smart-goal-planner-1-8tc9.onrender.com/goals";
 
   // Delete goal
   function handleDelete(goalId) {
-    fetch(`http://localhost:3000/goals/${goalId}`, {
+    fetch(`${API_URL}/${goalId}`, {
       method: "DELETE",
     })
       .then(() => {
@@ -66,7 +68,7 @@ const API_URL = "https://smart-goal-planner-1-8tc9.onrender.com/goals";
       .catch((error) => console.error("Error deleting goal:", error));
   }
 
-  // Start editing
+  // Edit goal
   function handleEdit(goal) {
     setEditingGoal(goal);
     setShowForm(true);
@@ -78,7 +80,7 @@ const API_URL = "https://smart-goal-planner-1-8tc9.onrender.com/goals";
 
       {showForm ? (
         <GoalForm
-          goal={editingGoal || {}} // Ensure goal is never null
+          goal={editingGoal || {}}
           onSubmit={handleFormSubmit}
           onCancel={() => {
             setEditingGoal(null);
@@ -86,10 +88,12 @@ const API_URL = "https://smart-goal-planner-1-8tc9.onrender.com/goals";
           }}
         />
       ) : (
-        <button onClick={() => {
-          setEditingGoal(null); // Reset editingGoal to avoid prefilled data
-          setShowForm(true);
-        }}>
+        <button
+          onClick={() => {
+            setEditingGoal(null);
+            setShowForm(true);
+          }}
+        >
           Add Goal
         </button>
       )}
@@ -100,3 +104,4 @@ const API_URL = "https://smart-goal-planner-1-8tc9.onrender.com/goals";
 }
 
 export default App;
+
